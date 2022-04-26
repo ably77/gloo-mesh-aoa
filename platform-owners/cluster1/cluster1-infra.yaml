@@ -9,7 +9,7 @@ spec:
   project: default
   source:
     repoURL: https://github.com/ably77/gloo-mesh-aoa/
-    targetRevision: 1.12-v2-beta31
+    targetRevision: 1.12-v2-beta32
     path: environments/cluster1/infra/active/
   destination:
     server: https://kubernetes.default.svc
