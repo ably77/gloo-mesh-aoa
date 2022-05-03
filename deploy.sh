@@ -5,7 +5,7 @@ set -e
 cluster1_context="cluster1"
 cluster2_context="cluster2"
 mgmt_context="mgmt"
-gloo_mesh_version="2.0.0-beta33"
+gloo_mesh_version="2.0.0-beta32"
 revision="1-12"
 
 # check to see if defined contexts exist
@@ -59,7 +59,7 @@ kubectl apply -f platform-owners/cluster2/cluster2-apps.yaml --context ${cluster
 kubectl apply -f platform-owners/mgmt/mgmt-mesh-config.yaml --context ${mgmt_context}
 
 # (for local deployments on k3d) deploy istio ingressgateways manually
-./tools/install-ingressgateways.sh
+#./tools/install-ingressgateways.sh
 
 # echo port-forward commands
 echo
