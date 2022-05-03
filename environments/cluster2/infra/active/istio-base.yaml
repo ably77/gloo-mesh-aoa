@@ -12,9 +12,6 @@ spec:
   project: default
   source:
     chart: base
-    #helm:
-    #  values: |
-    #    licenseKey: eyJleHAiOjE2NTMwODQwMzcsImlhdCI6MTY0OTk3MzYzNywiayI6IjYzNnNIUSIsImx0IjoidHJpYWwiLCJwcm9kdWN0IjoiZ2xvbyJ9.m6WgqDq10JloZgBmyIP7PBqprbOHvY5kcUaesPz81XU
     repoURL: https://istio-release.storage.googleapis.com/charts
     targetRevision: 1.12.6
   syncPolicy:
