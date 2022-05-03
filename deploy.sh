@@ -5,7 +5,7 @@ set -e
 cluster1_context="cluster1"
 cluster2_context="cluster2"
 mgmt_context="mgmt"
-gloo_mesh_version="2.0.0-beta32"
+gloo_mesh_version="2.0.0-beta34"
 revision="1-12"
 
 # check to see if defined contexts exist

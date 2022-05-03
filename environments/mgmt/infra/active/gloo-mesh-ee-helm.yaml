@@ -20,7 +20,7 @@ spec:
           ports:
             healthcheck: 8091
     repoURL: https://storage.googleapis.com/gloo-mesh-enterprise/gloo-mesh-enterprise
-    targetRevision: 2.0.0-beta32
+    targetRevision: 2.0.0-beta34
   syncPolicy:
     automated:
       prune: false
