@@ -13,6 +13,7 @@ spec:
     - name: httpbin-team2
       # delegate route table matchers are additional to the parent matcher
       # the below example would map prefix /image to whatever parent route table picks this label up
+      # if i were the owner of this table, how would i know what matcher i own?
       #matchers:
       #- uri:
       #    prefix: /image
