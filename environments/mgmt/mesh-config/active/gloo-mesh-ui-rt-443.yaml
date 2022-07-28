@@ -18,6 +18,15 @@ spec:
           number: 8090
     labels:
       waf: "true"
+    # Redirect route
+    - name: redirect
+      # Prefix matching for the old path
+      matchers:
+      - uri:
+          prefix: /gmui
+      # Redirection to the desired path
+      redirect:
+        pathRedirect: /
     name: gloo-mesh-ui
     matchers:
     - uri:
