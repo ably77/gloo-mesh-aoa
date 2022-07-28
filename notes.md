@@ -15,18 +15,6 @@ argocd on port 80
 
 gloo mesh on port 443 
 
-httpbin on 80 at /get
-- this route is rate limited at 20 req/sec
-- when you are rate limited, the transformationfilter provides a pretty message
-- log4j WAF policy enabled on this route
+httpbin on port 80 at /get and /anything - delegated route tables
 
-httpbin on 443 at /get
-- this route has no limits
-- log4j WAF policy enabled on this route
-
-grafana on port 443 at /grafana
-
-bookinfo on 80 at /productpage
-- this route is rate limited at 15 req/sec
-- when you are rate limited, the transformationfilter provides a pretty message
-- log4j WAF policy enabled on this route
+httpbin on port 443 at /get and /anything

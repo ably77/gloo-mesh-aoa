@@ -1,0 +1,26 @@
+apiVersion: networking.gloo.solo.io/v2
+kind: RouteTable
+metadata:
+  name: httpbin-rt-80-delegate1
+  namespace: httpbin
+  labels:
+    expose: "true"
+    table: httpbin
+spec:
+  # delegating subtable based on weight
+  weight: 100
+  http:
+    - name: httpbin-get-api
+      matchers:
+      - uri:
+          exact: /get
+      forwardTo:
+        destinations:
+        - ref:
+            name: in-mesh
+            namespace: httpbin
+          port:
+            number: 8000
+      labels:
+        ratelimited: "true"
+        waf: "true"

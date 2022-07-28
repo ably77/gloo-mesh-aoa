@@ -1,0 +1,24 @@
+apiVersion: networking.gloo.solo.io/v2
+kind: RouteTable
+metadata:
+  name: httpbin-rt-80
+  namespace: httpbin
+  labels:
+    expose: "true"
+spec:
+  hosts:
+    - 'httpbin.glootest.com'
+    - 'httpbin-local.glootest.com'
+  virtualGateways:
+    - name: mgmt-north-south-gw-80
+      namespace: istio-gateways
+      cluster: mgmt
+  workloadSelectors: []
+  http:
+  - delegate:
+      # Selects tables based on label
+      routeTables:
+        - labels:
+            table: httpbin
+      # Delegates based on order of weights highest to lowest
+      sortMethod: TABLE_WEIGHT
