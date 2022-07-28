@@ -18,6 +18,7 @@ spec:
       #- uri:
       #    prefix: /image
       forwardTo:
+        pathRewrite: /anything/foo
         destinations:
         - ref:
             name: in-mesh
