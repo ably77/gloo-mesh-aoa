@@ -11,9 +11,11 @@ spec:
   weight: 100
   http:
     - name: httpbin-team2
-      matchers:
-      - uri:
-          prefix: /image
+      # delegate route table matchers are additional to the parent matcher
+      # the below example would map prefix /image to whatever parent route table picks this label up
+      #matchers:
+      #- uri:
+      #    prefix: /image
       forwardTo:
         destinations:
         - ref:

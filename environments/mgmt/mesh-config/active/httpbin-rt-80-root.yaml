@@ -15,7 +15,7 @@ spec:
       cluster: mgmt
   workloadSelectors: []
   http:
-  - name: team1
+  - name: team1-rt
     matchers:
       - uri:
           prefix: /
@@ -26,7 +26,7 @@ spec:
             table: httpbin-team1
       # Delegates based on order of weights highest to lowest
       sortMethod: TABLE_WEIGHT
-  - name: team2
+  - name: team2-rt
     matchers:
       - uri:
           prefix: /anything
