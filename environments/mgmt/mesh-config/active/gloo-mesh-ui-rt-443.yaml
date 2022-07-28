@@ -17,16 +17,7 @@ spec:
     # Redirection to the desired path
     redirect:
       pathRedirect: /
-  - forwardTo:
-      destinations:
-      - ref:
-          name: gloo-mesh-ui
-          namespace: gloo-mesh
-        port:
-          number: 8090
-    labels:
-      waf: "true"
-    name: gloo-mesh-ui
+  - name: gloo-mesh-ui
     matchers:
     - uri:
         exact: /
@@ -42,6 +33,15 @@ spec:
         prefix: /workspace
     - uri:
         prefix: /oidc-callback
+    forwardTo:
+      destinations:
+      - ref:
+          name: gloo-mesh-ui
+          namespace: gloo-mesh
+        port:
+          number: 8090
+    labels:
+      waf: "true"
   virtualGateways:
   - cluster: mgmt
     name: mgmt-north-south-gw-443
