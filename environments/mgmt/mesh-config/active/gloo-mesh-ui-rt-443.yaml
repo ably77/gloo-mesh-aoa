@@ -34,7 +34,7 @@ spec:
     - uri:
         prefix: /oidc-callback
     forwardTo:
-      hostRewrite: gmui-local-glootest.com
+      #hostRewrite: another.solo.io
       destinations:
       - ref:
           name: gloo-mesh-ui
