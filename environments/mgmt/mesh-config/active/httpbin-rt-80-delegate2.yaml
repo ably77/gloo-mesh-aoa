@@ -17,8 +17,10 @@ spec:
       matchers:
       - uri:
           prefix: /foo
+      - uri:
+          prefix: /bar
       forwardTo:
-        pathRewrite: /anything/foo/bar
+        pathRewrite: /anything/bar
         destinations:
         - ref:
             name: in-mesh
