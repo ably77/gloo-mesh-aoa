@@ -1,7 +1,7 @@
 apiVersion: networking.gloo.solo.io/v2
 kind: RouteTable
 metadata:
-  name: httpbin-rt-80-delegate1
+  name: httpbin-rt-80-delegate2
   namespace: httpbin
   labels:
     expose: "true"
