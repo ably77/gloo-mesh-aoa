@@ -20,13 +20,10 @@ spec:
       - uri:
           prefix: /
     delegate:
-      # Selects tables based on label
+      # Selects tables based on name
       routeTables:
         - name: httpbin-rt-80-delegate1
-      #  - labels:
-      #      table: httpbin-team1
-      # Delegates based on order of weights highest to lowest
-      sortMethod: TABLE_WEIGHT
+      sortMethod: ROUTE_SPECIFICITY
   - name: team2-rt
     matchers:
       - uri:
