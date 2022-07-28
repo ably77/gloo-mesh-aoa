@@ -29,15 +29,19 @@ spec:
     name: gloo-mesh-ui
     matchers:
     - uri:
-        prefix: /
+        exact: /
     - uri:
-        prefix: /graph
+        exact: /welcome
     - uri:
-        prefix: /gateways
+        prefix: /static
     - uri:
-        prefix: /policies
+        prefix: /login
     - uri:
-          prefix: /oidc-callback
+        prefix: /rpc
+    - uri:
+        prefix: /workspace
+    - uri:
+        prefix: /oidc-callback
   virtualGateways:
   - cluster: mgmt
     name: mgmt-north-south-gw-443
