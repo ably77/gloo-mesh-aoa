@@ -18,7 +18,7 @@ spec:
   - name: team1
     matchers:
       - uri:
-          prefix: /get
+          prefix: /anything
     delegate:
       # Selects tables based on label
       routeTables:
