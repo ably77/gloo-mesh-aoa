@@ -9,6 +9,14 @@ spec:
   hosts:
   - '*'
   http:
+  - name: redirect
+    matchers:
+    # Prefix matching for the old path
+    - uri:
+        prefix: /gmui
+    # Redirection to the desired path
+    redirect:
+      pathRedirect: /
   - forwardTo:
       destinations:
       - ref:
@@ -18,15 +26,6 @@ spec:
           number: 8090
     labels:
       waf: "true"
-    # Redirect route
-    - name: redirect
-      # Prefix matching for the old path
-      matchers:
-      - uri:
-          prefix: /gmui
-      # Redirection to the desired path
-      redirect:
-        pathRedirect: /
     name: gloo-mesh-ui
     matchers:
     - uri:
