@@ -23,6 +23,17 @@ spec:
       # Selects tables based on label
       routeTables:
         - labels:
-            table: httpbin
+            table: httpbin-team1
+      # Delegates based on order of weights highest to lowest
+      sortMethod: TABLE_WEIGHT
+  - name: team2
+    matchers:
+      - uri:
+          exact: /get
+    delegate:
+      # Selects tables based on label
+      routeTables:
+        - labels:
+            table: httpbin-team2
       # Delegates based on order of weights highest to lowest
       sortMethod: TABLE_WEIGHT
