@@ -20,7 +20,7 @@ spec:
       - uri:
           prefix: /bar
       forwardTo:
-        pathRewrite: /anything/bar
+        pathRewrite: /anything/bar/baz
         destinations:
         - ref:
             name: in-mesh
