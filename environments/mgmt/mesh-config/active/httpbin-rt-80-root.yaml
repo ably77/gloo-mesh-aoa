@@ -22,8 +22,7 @@ spec:
     delegate:
       # Selects tables based on label
       routeTables:
-        name:
-        - httpbin-rt-80-delegate1
+        name: httpbin-rt-80-delegate1
       #  - labels:
       #      table: httpbin-team1
       # Delegates based on order of weights highest to lowest
