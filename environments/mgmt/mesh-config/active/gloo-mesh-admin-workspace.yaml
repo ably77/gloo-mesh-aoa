@@ -12,3 +12,9 @@ spec:
     - name: argocd
     - name: gloo-mesh
     - name: istio-system
+  - name: cluster1
+    namespaces:
+    - name: argocd
+  - name: cluster2
+    namespaces:
+    - name: argocd

@@ -1,0 +1,32 @@
+apiVersion: networking.gloo.solo.io/v2
+kind: RouteTable
+metadata:
+  name: etherpad-rt-443
+  namespace: collaboration-tools
+  labels:
+    expose: "true"
+spec:
+  hosts:
+    - 'etherpad-local.glootest.com'
+  virtualGateways:
+    - name: mgmt-north-south-gw-443
+      namespace: istio-gateways
+      cluster: mgmt
+  workloadSelectors: []
+  http:
+    - name: etherpad-unprotected
+      #labels:
+      #  waf: "true"
+      #  ratelimited: "true"
+      #matchers:
+      #- uri:
+      #    exact: /image/jpeg
+      #- uri:
+      #    prefix: /anything/unprotected
+      forwardTo:
+        destinations:
+        - ref:
+            name: etherpad
+            namespace: collaboration-tools
+          port:
+            number: 9001

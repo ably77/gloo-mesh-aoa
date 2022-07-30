@@ -1,0 +1,32 @@
+apiVersion: networking.gloo.solo.io/v2
+kind: RouteTable
+metadata:
+  name: drawio-rt-443
+  namespace: collaboration-tools
+  labels:
+    expose: "true"
+spec:
+  hosts:
+    - 'drawio-local.glootest.com'
+  virtualGateways:
+    - name: mgmt-north-south-gw-443
+      namespace: istio-gateways
+      cluster: mgmt
+  workloadSelectors: []
+  http:
+    - name: drawio-unprotected
+      #labels:
+      #  waf: "true"
+      #  ratelimited: "true"
+      #matchers:
+      #- uri:
+      #    exact: /image/jpeg
+      #- uri:
+      #    prefix: /anything/unprotected
+      forwardTo:
+        destinations:
+        - ref:
+            name: drawio
+            namespace: collaboration-tools
+          port:
+            number: 8080

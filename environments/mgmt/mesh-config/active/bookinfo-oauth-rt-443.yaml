@@ -3,11 +3,12 @@ kind: RouteTable
 metadata:
   labels:
     expose: "true"
-  name: productpage
+  name: productpage-rt-443
   namespace: bookinfo-frontends
 spec:
   hosts:
-  - '*'
+  - 'bookinfo.glootest.com'
+  - 'bookinfo-local.glootest.com'
   http:
   - forwardTo:
       destinations:
@@ -18,7 +19,7 @@ spec:
           namespace: bookinfo-frontends
     labels:
       waf: "true"
-      ratelimited: "true"
+      oauth: "true"
     matchers:
     - uri:
         exact: /productpage
@@ -30,9 +31,11 @@ spec:
         exact: /logout
     - uri:
         prefix: /api/v1/products
+    - uri:
+        prefix: /callback
     name: productpage
   virtualGateways:
-  - cluster: cluster1
-    name: mgmt-north-south-gw-80
+  - cluster: mgmt
+    name: mgmt-north-south-gw-443
     namespace: istio-gateways
   workloadSelectors: []

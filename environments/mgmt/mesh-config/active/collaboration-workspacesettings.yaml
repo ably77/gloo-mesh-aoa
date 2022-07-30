@@ -1,0 +1,27 @@
+apiVersion: admin.gloo.solo.io/v2
+kind: WorkspaceSettings
+metadata:
+  name: collaboration
+  namespace: collaboration-tools
+spec:
+  importFrom:
+  - workspaces:
+    - name: gateways
+    resources:
+    - kind: SERVICE
+  exportTo:
+  - workspaces:
+    - name: gateways
+    resources:
+    - kind: SERVICE
+      labels:
+        app: draw.io
+    - kind: SERVICE
+      labels:
+        app: etherdraw
+    - kind: SERVICE
+      labels:
+        app: etherpad
+    - kind: ALL
+      labels:
+        expose: "true"

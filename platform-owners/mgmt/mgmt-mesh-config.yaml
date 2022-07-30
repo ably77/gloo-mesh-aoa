@@ -9,7 +9,7 @@ spec:
   project: default
   source:
     repoURL: https://github.com/ably77/gloo-mesh-aoa/
-    targetRevision: HEAD
+    targetRevision: 1.13-v2.0.9-hybrid-okta-glootest.com
     path: environments/mgmt/mesh-config/active/
   destination:
     server: https://kubernetes.default.svc

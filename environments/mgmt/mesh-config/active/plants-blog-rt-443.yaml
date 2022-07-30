@@ -1,0 +1,47 @@
+apiVersion: networking.gloo.solo.io/v2
+kind: RouteTable
+metadata:
+  name: plants-blog-rt-443
+  namespace: collaboration-tools
+  labels:
+    expose: "true"
+spec:
+  hosts:
+    - 'plants-local.glootest.com'
+  virtualGateways:
+    - name: mgmt-north-south-gw-443
+      namespace: istio-gateways
+      cluster: mgmt
+  workloadSelectors: []
+  http:
+    - name: plants-main
+      #labels:
+      #  waf: "true"
+      #  ratelimited: "true"
+      matchers:
+      - uri:
+          prefix: /
+      forwardTo:
+        destinations:
+        - ref:
+            name: plants-blog
+            namespace: collaboration-tools
+          port:
+            number: 443
+    - name: plants-admin
+      #labels:
+      #  oauth: "true"
+      #  waf: "true"
+      #  ratelimited: "true"
+      matchers:
+      - uri:
+          prefix: /ghost
+      - uri:
+          prefix: /callback
+      forwardTo:
+        destinations:
+        - ref:
+            name: plants-blog
+            namespace: collaboration-tools
+          port:
+            number: 443

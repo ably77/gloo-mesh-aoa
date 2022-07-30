@@ -3,16 +3,17 @@ kind: RouteTable
 metadata:
   labels:
     expose: "true"
-  name: mgmt-argo-rt-80
+  name: mgmt-argo-rt-443
   namespace: argocd
 spec:
   hosts:
-  - '*'
+  - 'argocd.glootest.com'
+  - 'argocd-local.glootest.com'
   http:
   - forwardTo:
       destinations:
       - port:
-          number: 80
+          number: 443
         ref:
           cluster: mgmt
           name: argocd-server
@@ -22,6 +23,6 @@ spec:
     name: argocd
   virtualGateways:
   - cluster: mgmt
-    name: mgmt-north-south-gw-80
+    name: mgmt-north-south-gw-443
     namespace: istio-gateways
   workloadSelectors: []
