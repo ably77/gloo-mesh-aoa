@@ -9,7 +9,7 @@ spec:
   project: default
   source:
     repoURL: https://github.com/ably77/gloo-mesh-aoa/
-    targetRevision: 1.13-v2.0.9-hybrid-okta-glootest.com
+    targetRevision: scratchspace-v1
     path: environments/mgmt/apps/active/
   destination:
     server: https://kubernetes.default.svc
